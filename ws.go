@@ -101,7 +101,8 @@ func (s *Peer) SetName(request *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	client := parser.Parse(request.Header.Get("User-Agent"))
+	ua := request.Header.Get("User-Agent")
+	client := parser.Parse(ua)
 	if client.Os.Family != "" {
 		deviceName += client.Os.Family + " "
 	}
@@ -111,10 +112,10 @@ func (s *Peer) SetName(request *http.Request) {
 	if deviceName == "" {
 		deviceName = "Unknown Device"
 	}
-	if strings.Contains(strings.ToLower(strings.TrimSpace(deviceName)), "android") || strings.Contains(strings.ToLower(strings.TrimSpace(deviceName)), "ios") {
-		deviceType = "mobile"
-	} else if strings.Contains(strings.ToLower(strings.TrimSpace(deviceName)), "ipad") {
+	if strings.Contains(strings.ToLower(ua), "ipad") {
 		deviceType = "tablet"
+	} else if strings.Contains(strings.ToLower(ua), "mobile") {
+		deviceType = "mobile"
 	} else {
 		deviceType = "desktop"
 	}
