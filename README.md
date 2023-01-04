@@ -17,4 +17,4 @@ Usage:
   -k string
         SSL Key File
 ```
-Access the local LAN network IP: 8000 to transfer files to each other. eg: 192.168.1.104:8080
+Access the local LAN network IP: 8080 to transfer files to each other. eg: 192.168.1.104:8080
