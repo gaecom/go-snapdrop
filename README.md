@@ -4,7 +4,7 @@
 # go-snapdrop
 Features:  
 1. Rewrite the backend using go.
-2. Increase the identification of private network. eg: 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16
+2. Add the support of private network. eg: 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16
 3. Single file execution
 
 Usage:
